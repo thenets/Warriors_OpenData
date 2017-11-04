@@ -2,6 +2,13 @@ import csv, requests, unicodedata
 
 # CSV2DICT
 def csv2dict (csv_url, csv_delimiter):
+    ''' csv2dict
+    Get CSV from URL and convert to Python dict().
+    
+    Params:
+        - csv_url: URL from remote
+        - csv_delimiter: Delimiter (example: '~' or '.')
+    '''
     # Set CSV URL
     CSV_URL = csv_url
 
