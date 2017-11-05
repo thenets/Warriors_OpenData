@@ -21,34 +21,36 @@
       <div class="column">
         <div>
           <!-- --------------------------------------------- -->
-            <div class="ui link cards">
+            <table class="ui celled structured table">
+              <thead>
+                <tr>
+                    <th rowspan="2">Modelo</th>
+                    <th rowspan="2">Fabricante</th>
+                    <th rowspan="2">Assentos</th>
+                    <th colspan="2">Motor</th>
+                </tr>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Quantidade</th>
+                </tr>
+              </thead>
+              <tbody>
               {% for aeronave in aeronaves %}
-              <div class="card">
-                <div class="image">
-                  <img src="#">
-                </div>
-                <div class="content">
-                  <div class="header">{{aeronave['modelo']|e}}</div>
-                  <div class="meta">
-                    <a>{{aeronave['fabricante']|e}}</a>
-                  </div>
-                  <div class="description">
-                    <p>Assentos: {{aeronave['assentos']|e}}</p>
-                    <p>Tipo de motor: {{aeronave['motor_tipo']|e}}</p>
-                  </div>
-                </div>
-                <div class="extra content">
-                  <span class="right floated">
-                    Joined in 2013
-                  </span>
-                  <span>
-                    <i class="user icon"></i>
-                    75 Friends
-                  </span>
-                </div>
-              </div>
+                <tr>
+                  <td>{{aeronave['modelo']|e}}</td>
+                  <td>{{aeronave['fabricante']|e}}</td>
+                  <td class="center aligned">{{aeronave['assentos']|e}}</td>
+                  <td>
+                    {{aeronave['motor_tipo']|e}}
+                  </td>
+                  <td>
+                    {{aeronave['motor_quantidade']|e}}
+                  </td>
+                </tr>
               {% endfor %}
-            </div>
+              </tbody>
+            </table>
+            
           <!-- --------------------------------------------- -->
         </div>
       </div>
