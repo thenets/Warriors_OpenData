@@ -14,7 +14,6 @@ def getAeronaves ():
         aeronaves[i['aeronave_modelo']]['tipo_veiculo']     = i['aeronave_tipo_veiculo']
         aeronaves[i['aeronave_modelo']]['motor_tipo']       = i['aeronave_motor_tipo']
         aeronaves[i['aeronave_modelo']]['motor_quantidade'] = i['aeronave_motor_quantidade']
-            
         
     return aeronaves
 

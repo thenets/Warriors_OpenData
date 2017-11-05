@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-
 import requests, json
 
 app = Flask(__name__)
@@ -14,7 +13,7 @@ def getPk(id):
         tries=0
         while (tries < 5):
             try:
-                r = session.get('https://apps.thenets.org/pokemon_api/?id=' + id)
+                r = session.get('https://apps.thenets.org/api/pokemon/v2/pokemon/' + id)
                 pokemon = r.json()
                 return render_template('home.html', pokemon=pokemon)
             except:
