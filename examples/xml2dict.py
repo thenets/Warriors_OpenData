@@ -1,4 +1,7 @@
-import requests, xmltodict, unicodedata, collections
+import requests, xmltodict, xmltodict, json, unicodedata
+
+import sys
+print(sys.getdefaultencoding())
 
 # XML url
 XML_URL = 'https://raw.githubusercontent.com/servicosgovbr/cartas-de-servico/master/cartas-servico/v3/lista-completa-servicos.xml'
@@ -8,28 +11,14 @@ with requests.Session() as session:
     request = session.get(XML_URL)
     content = request.content
     
-    # Parse XML to dict
-    CONTENT_DICT = xmltodict.parse(content)
+    # Parse to JSON to fix encode
+    xml_dict = xmltodict.parse(content)
+    j = json.dumps(xml_dict)
+    j_encoded = j
+    CONTENT_DICT = json.loads(j_encoded)
     
-    # Encode (remove special characters)
-    def normalize_dict(d):
-        # Check if is iterable but not string
-        try:
-            if(not isinstance(d, str)):
-                # Recursive method call
-                for i in d:
-                    print('class', d.__class__)
-                    normalize_dict(i)
-            
-        except Exception as e:
-            print(e)
-            if(isinstance(d, str)):
-                d = unicodedata.normalize('NFKD', str(d)).encode('ASCII','ignore').decode('ASCII')
-                print(d)
-            
-    normalize_dict(CONTENT_DICT)
-                
-        
+    with open('../test.txt', 'w') as f:
+        f.write(j)
 
 # Example of output
-# print(CONTENT_DICT)
+print(CONTENT_DICT)
