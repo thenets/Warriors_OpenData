@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import requests, json
 from flask import Flask
 app = Flask(__name__)
