@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hello from Flask</title>
+    {% include('snippets/head.html') %}
+</head>
+<body>
+    
+    <div class="ui one column doubling stackable grid container">
+        <div class="colunm">
+            <div class="ui sizer vertical segment">
+                <br>
+              <div class="ui huge header">Global Pokédex</div>
+               <br><br>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui two column doubling stackable grid container">
+      <div class="column">
+        <div>
+          <!-- --------------------------------------------- -->
+            <div class="ui cards">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated ui image" src="{{pokemon['sprites']['front_default']}}">
+                  <div class="header">
+                    {{pokemon['name']}}
+                  </div>
+                  <div class="meta">
+                    <p>Peso: {{pokemon['weight']}}</p>
+                    <p>Altura: {{pokemon['height']}} polagadas</p>
+                  </div>
+                  <div class="description">
+                    <p>Ataques:</p>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="ui two buttons">
+                    <div class="ui basic green button">Approve</div>
+                    <div class="ui basic red button">Decline</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- --------------------------------------------- -->
+        </div>
+      </div>
+      <div class="column">
+        <p><h3>Controles</h3></p>
+        <form action="." method="GET">
+            <div class="ui form">
+              <div class="field">
+                <label>Pokémon Global Pokédex ID</label>
+                <input type="number" name="id" autocomplete="off" value="{{pokemon['id']}}">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
