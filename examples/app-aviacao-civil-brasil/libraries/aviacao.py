@@ -5,10 +5,16 @@ def getAeronaves ():
     content = csv2dict('https://raw.githubusercontent.com/nosbielcs/opendata_aig_brazil/master/data/anv.csv', '~')
     
     # Get all "fabricantes"
-    aeronaves = []
+    aeronaves = {}
     for i in content:
-        aeronaves.append(i['aeronave_modelo'])
-    aeronaves = list(set(aeronaves)) # remove equals
+        aeronaves[i['aeronave_modelo']] = {}
+        aeronaves[i['aeronave_modelo']]['modelo']           = i['aeronave_modelo']
+        aeronaves[i['aeronave_modelo']]['assentos']         = i['aeronave_assentos']
+        aeronaves[i['aeronave_modelo']]['fabricante']       = i['aeronave_fabricante']
+        aeronaves[i['aeronave_modelo']]['tipo_veiculo']     = i['aeronave_tipo_veiculo']
+        aeronaves[i['aeronave_modelo']]['motor_tipo']       = i['aeronave_motor_tipo']
+        aeronaves[i['aeronave_modelo']]['motor_quantidade'] = i['aeronave_motor_quantidade']
+            
         
     return aeronaves
 
