@@ -57,7 +57,3 @@ def csv2dict (csv_url, csv_delimiter):
     
         return CONTENT_LIST
             
-# Example
-content = csv2dict('https://raw.githubusercontent.com/nosbielcs/opendata_aig_brazil/master/data/oco.csv', '~')
-print(content[2])   
-        
