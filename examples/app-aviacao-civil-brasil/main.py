@@ -5,7 +5,6 @@ import libraries.aviacao as aviacao
 
 app = Flask(__name__) # Create Flask singleton
 
-
 @app.route('/')
 def display():
     return render_template('home.html')
@@ -16,4 +15,4 @@ def getAeronaves():
     return render_template('aeronaves.html', aeronaves=aeronaves)
 
 if __name__=='__main__':
-    app.run(debug=True, host='0.0.0.0', port=9002)
+    app.run(debug=True, host='0.0.0.0', port=9003)
