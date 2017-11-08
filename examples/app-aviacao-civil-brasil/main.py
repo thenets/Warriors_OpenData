@@ -6,11 +6,11 @@ import libraries.aviacao as aviacao
 app = Flask(__name__) # Create Flask singleton
 
 @app.route('/')
-def display():
-    return render_template('home.html')
+def Ocorrencias():
+    return render_template('home.html', getOcorrencias=aviacao.getOcorrencias)
 
 @app.route('/aeronaves')
-def getAeronaves():
+def Aeronaves():
     aeronaves = aviacao.getAeronaves().values()
     return render_template('aeronaves.html', aeronaves=aeronaves)
 

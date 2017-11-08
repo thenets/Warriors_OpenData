@@ -21,7 +21,7 @@ def csv2dict (csv_url, csv_delimiter):
         hex_dig     = hash_object.hexdigest()
         
         # Create cache dir if not exist
-        cache_path = '/tmp/csv2dict/'
+        cache_path = '__pycache__/csv2dict/'
         if not os.path.exists(cache_path):
             os.makedirs(cache_path)
         

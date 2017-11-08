@@ -10,9 +10,7 @@
     <div class="ui one column doubling stackable grid container">
         <div class="colunm">
             <div class="ui sizer vertical segment">
-                <br>
               <div class="ui huge header">Todas as aeronaves</div>
-               <br><br>
             </div>
         </div>
     </div>
@@ -27,6 +25,7 @@
                     <th rowspan="2">Modelo</th>
                     <th rowspan="2">Fabricante</th>
                     <th rowspan="2">Assentos</th>
+                    <th rowspan="2">Tipo Veículo</th>
                     <th colspan="2">Motor</th>
                 </tr>
                 <tr>
@@ -37,15 +36,12 @@
               <tbody>
               {% for aeronave in aeronaves %}
                 <tr>
-                  <td>{{aeronave['modelo']|e}}</td>
-                  <td>{{aeronave['fabricante']|e}}</td>
-                  <td class="center aligned">{{aeronave['assentos']|e}}</td>
-                  <td>
-                    {{aeronave['motor_tipo']|e}}
-                  </td>
-                  <td>
-                    {{aeronave['motor_quantidade']|e}}
-                  </td>
+                  <td>{{aeronave['aeronave_modelo']|e}}</td>
+                  <td>{{aeronave['aeronave_fabricante']|e}}</td>
+                  <td class="center aligned">{{aeronave['aeronave_assentos']|e}}</td>
+                  <td>{{aeronave['aeronave_tipo_veiculo']|e}}</td>
+                  <td>{{aeronave['aeronave_motor_tipo']|e}}</td>
+                  <td>{{aeronave['aeronave_motor_quantidade']|e}}</td>
                 </tr>
               {% endfor %}
               </tbody>

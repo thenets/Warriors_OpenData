@@ -6,11 +6,44 @@
 </head>
 <body>
     {% include('snippets/topbar.html') %}
+    
+    <!-- Título 
+    ------------------------------------------------- -->
     <div class="ui main text container">
         <h1 class="ui header">Ocorrências Aeronáuticas na Aviação Civil Brasileira</h1>
         <p>Repositório com dados abertos sobre ocorrências aeronáuticas da aviação civil brasileira. Os dados extraídos já estão limpos e prontos para análises, no formato texto/cvs, separado por ~ (til).</p>
-        <br><br><br><br><br><br>
+        <br><br><br>
     </div>
+    
+    
+    <!-- Ocorrencias por estado 
+    ------------------------------------------------- -->
+    <div class="ui main text container">
+        <h1 class="ui header">Por estado</h1>
+        
+        <table class="ui celled striped table">
+          <thead>
+            <tr>
+              <th colspan="3">
+              Git Repository
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for uf, i in getOcorrencias('ocorrencia_uf').items() %}
+            <tr>
+              <td class="collapsing">
+                <i class="folder icon"></i> {{uf}}
+              </td>
+              <td>Initial commit</td>
+              <td class="right aligned collapsing">10 hours ago</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <br><br><br>
+    </div>
+    
 
 </body>
 </html>
